@@ -170,6 +170,7 @@ return [
         'second'                => 'segundo',
         'title'                 => 'título',
         'content'               => 'contenido',
+        'content'               => 'contenido',
         'body'                  => 'contenido',
         'description'           => 'descripción',
         'excerpt'               => 'extracto',
