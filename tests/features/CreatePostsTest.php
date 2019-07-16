@@ -3,23 +3,28 @@
 
 class CreatePostsTest extends FeatureTestCase
 {
+    // pruebas funcionales o de aplicación
     function test_a_user_create_a_post()
     {
+        // Having
         $title = 'Esta es una pregunta';
         $content = 'Este es el contenido';
 
         $this->actingAs($user = $this->defaultUser());
 
+        // When
         $this->visit(route('posts.create'))
             ->type($title, 'title')
             ->type($content, 'content')
             ->press('Publicar');
 
+        // Then
         $this->seeInDatabase('posts', [
             'title' => $title,
             'content' => $content,
             'pending' => true,
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'slug' => 'esta-es-una-pregunta'
         ]);
 
         $this->see($title);
